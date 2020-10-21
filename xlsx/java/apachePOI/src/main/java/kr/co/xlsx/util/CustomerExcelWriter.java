@@ -19,6 +19,12 @@ import kr.co.xlsx.vo.CustomerVo;
 
 public class CustomerExcelWriter {
 	
+	private String s = File.separator; //디렉토리 구분자
+	private String route = 
+			"C:" +s+ "kyh" +s+ "export" +s+ "excel" +s;
+	private String xlsFile = "test.xls";
+	private String xlsxFile = "test.xlsx";
+	
 	public void xlsWiter(List<CustomerVo> list) {
 		// 워크북 생성
 		HSSFWorkbook workbook = new HSSFWorkbook();
@@ -65,7 +71,7 @@ public class CustomerExcelWriter {
 		}
 		
 		// 입력된 내용 파일로 쓰기
-		File file = new File("C:\\excel\\testWrite.xls");
+		File file = new File(route + xlsFile);
 		FileOutputStream fos = null;
 		
 		try {
@@ -133,7 +139,7 @@ public class CustomerExcelWriter {
 		}
 		
 		// 입력된 내용 파일로 쓰기
-		File file = new File("C:\\excel\\testWrite.xlsx");
+		File file = new File(route + xlsxFile);
 		FileOutputStream fos = null;
 		
 		try {
